@@ -21,12 +21,7 @@ public class PankkitiliMain {
 				try{
 					System.out.printf("Syota saldo >");
 					double s = reader.nextDouble();
-					if(s >= 0){
-						tili.set_saldo(s);
-					}
-					else{
-						System.out.println("Saldo ei voi olla negatiivinen");
-					}
+					tili.set_saldo(s);
 				} catch (Exception exception) {
 					System.out.printf("Vaara saldo\n");
 				}
@@ -34,7 +29,7 @@ public class PankkitiliMain {
 				String syy = reader.nextLine();
 			}
 			else if(input.equals("n")) {
-				try{
+				try{	
 					System.out.printf("Paljonko haluat nostaa >");
 					double nosto = reader.nextDouble();
 					double n = tili.get_saldo();
@@ -47,8 +42,9 @@ public class PankkitiliMain {
 						System.out.printf("tililla on : %f $\n", n);
 						String syy1 = reader.nextLine();
 					}
-				} catch(Exception exception){
-					System.out.printf("Vaara!\n");
+				} catch(Exception exception) {
+					System.out.println("noston tulee olla muotoa double!\n");
+					String syy69 = reader.nextLine();
 				}
 			}
 			else if (input.equals("t")) {

@@ -21,7 +21,12 @@ public class PankkitiliMain {
 				try{
 					System.out.printf("Syota saldo >");
 					double s = reader.nextDouble();
-					tili.set_saldo(s);
+					if(s >= 0){
+						tili.set_saldo(s);
+					}
+					else{
+						System.out.println("Saldo ei voi olla negatiivinen");
+					}
 				} catch (Exception exception) {
 					System.out.printf("Vaara saldo\n");
 				}
@@ -29,17 +34,21 @@ public class PankkitiliMain {
 				String syy = reader.nextLine();
 			}
 			else if(input.equals("n")) {
-				System.out.printf("Paljonko haluat nostaa >");
-				double nosto = reader.nextDouble();
-				double n = tili.get_saldo();
-				if (n-nosto <0){
-					System.out.printf("Tililla ei ole nain paljoa rahaa!");
-				}
-				else {
-					n = n-nosto;
-					tili.set_saldo(n);
-					System.out.printf("tililla on : %f $\n", n);
-					String syy1 = reader.nextLine();
+				try{
+					System.out.printf("Paljonko haluat nostaa >");
+					double nosto = reader.nextDouble();
+					double n = tili.get_saldo();
+					if (n-nosto <0){
+						System.out.printf("Tililla ei ole nain paljoa rahaa!");
+					}
+					else {
+						n = n-nosto;
+						tili.set_saldo(n);
+						System.out.printf("tililla on : %f $\n", n);
+						String syy1 = reader.nextLine();
+					}
+				} catch(Exception exception){
+					System.out.printf("Vaara!\n");
 				}
 			}
 			else if (input.equals("t")) {
